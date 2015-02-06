@@ -1,0 +1,4 @@
+- flash.each do |name, msg|
+  %div{:class => "alert alert-#{name} fade in", :style => "color: #ff0000;"}
+    / %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
+    = msg

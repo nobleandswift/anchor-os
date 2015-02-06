@@ -1,0 +1,14 @@
+%form#test-form.white-popup-block
+  %h1 Form
+  %fieldset{:style => "border:0;"}
+    %label{:for => "name"} Html Link
+    %input#name{:name => "name", :placeholder => "Name", :required => "", :type => "text", :size => 40}
+
+
+.white-popup-block
+  = bootstrap_form_for(@html_link) do |f|
+    = f.text_field :htmllink
+    - if @html_link.new_record?
+      = f.submit :Create
+    - else
+      = f.submit :Save

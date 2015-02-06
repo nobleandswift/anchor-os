@@ -1,0 +1,16 @@
+#top-header.navbar.navbar-fixed-top.navbar-inverse{:role => "navigation"}
+  .container.header-content
+    .navbar-header
+      %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => html_links_path}
+        %span.label.label-primary
+          Multiple Small Projects
+
+    .collapse.navbar-collapse
+
+.banner
+  / = image_tag 'background.jpg', alt: "Multiple Small Projects"

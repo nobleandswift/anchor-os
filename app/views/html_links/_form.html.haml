@@ -1,0 +1,23 @@
+/ = form_for(@html_link) do |f|
+/   - if @html_link.errors.any?
+/     #error_explanation
+/       %h2
+/         = pluralize(@html_link.errors.count, "error")
+/         prohibited this html_link from being saved:
+/       %ul
+/         - @html_link.errors.full_messages.each do |message|
+/           %li= message
+/   .actions
+/     = f.submit
+
+
+/ = error_message_for(@html_link)
+
+.white-popup-block
+  = bootstrap_form_for(@html_link) do |f|
+    = f.text_field :htmllink
+    - if @html_link.new_record?
+      = f.submit :Create
+    - else
+      = f.submit :Save
+    %button.mfp-close{:style => "color: #333;", :title => "Close (Esc)", :type => "button"} ×
