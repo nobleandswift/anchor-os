@@ -38,7 +38,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'bootstrap_form'
 
-gem 'mailcatcher'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -66,7 +66,8 @@ gem 'rails_12factor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'sqlite3'
+
+  
   gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
