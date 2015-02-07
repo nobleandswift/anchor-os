@@ -1,39 +1,42 @@
 .page
   .container
-    %p#notice= notice
-    %h1 Listing Html Links
+    .col-md-12
+      %p#notice= notice
+      %h1 Listing Html Links
 
-    %br
-    = render "/shared/flashes"  
-    %a.btn.btn-primary.pull-right.add-html-link{:href => new_html_link_path}
-      %span.glyphicon.glyphicon-new-window
-      Add
+      %br
+      = render "/shared/flashes"  
+      .clearfix
+        %a.btn.btn-primary.pull-right.add-html-link{:href => new_html_link_path}
+          %span.glyphicon.glyphicon-new-window
+          Add
 
-    .table-responsive
-      %table.table.table-hover
-        %thead
-          %tr
-            %th No
-            %th Link
-            %th Actions
+      .panel.panel-default
 
-        %tbody
-          - index = 0
-          - @html_links.each do |html_link|
-            - index += 1
-            %tr{:class => cycle('default', 'default')}
-              %td= index.to_s
-              %td= html_link.htmllink
-              %td.actions
-                / %a.btn.btn-primary.show-html-link{:href => test_form_html_link_path(html_link)}
-                /   %span.glyphicon.glyphicon-list-alt
-                /   Show
-                %a.btn.btn-info.edit-html-link{:href => edit_html_link_path(html_link)}
-                  %span.glyphicon.glyphicon-edit
-                  Edit
-                %a.btn.btn-danger{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
-                  %span.glyphicon.glyphicon-trash
-                  Del
+        %table#sortable.table.table-hover.table-bordered.table-striped
+          %thead
+            %tr
+              / %th No
+              %th Link
+              %th Actions
+
+          %tbody
+            - index = 0
+            - @html_links.each do |html_link|
+              - index += 1
+              %tr{:class => cycle('default', 'default'), :class => 'item'}
+                / %td= index.to_s
+                %td= html_link.htmllink
+                %td.actions
+                  / %a.btn.btn-primary.show-html-link{:href => test_form_html_link_path(html_link)}
+                  /   %span.glyphicon.glyphicon-list-alt
+                  /   Show
+                  %a.btn.btn-info.edit-html-link{:href => edit_html_link_path(html_link)}
+                    %span.glyphicon.glyphicon-edit
+                    Edit
+                  %a.btn.btn-danger{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
+                    %span.glyphicon.glyphicon-trash
+                    Del
 
     / link that opens popup
     / %a.popup-with-form{:href => "#test-form"} Open form
