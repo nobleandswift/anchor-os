@@ -39,9 +39,15 @@ $(document).ready(function() {
     overflowY: 'scroll' // as we know that popup content is tall we set scroll overflow by default to avoid jump
   });
 
-  $('.simple-ajax-popup').magnificPopup({
-    type: 'ajax'
-  });
-
+  
+  
+  $('.link-item').on("click",function(){
+    var width = 500; var height = 500;
+    var left = (screen.width / 2)-(width / 2);
+    var top = (screen.height / 2)-(height / 2);
+    window.open($(this).attr('href'), 'mywin', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
+    return false;
+    
+  })
 
 });

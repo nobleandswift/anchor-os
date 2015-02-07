@@ -26,7 +26,11 @@
               - index += 1
               %tr{:class => cycle('default', 'default'), :class => 'item'}
                 / %td= index.to_s
-                %td= html_link.htmllink
+                %td
+                  / = link_to html_link.htmllink, html_link.htmllink, {:class => 'link-item'}
+                  %a{:href => html_link.htmllink, :class => 'link-item'}=html_link.htmllink
+                  
+
                 %td.actions
                   / %a.btn.btn-primary.show-html-link{:href => test_form_html_link_path(html_link)}
                   /   %span.glyphicon.glyphicon-list-alt
@@ -40,7 +44,7 @@
 
     / link that opens popup
     / %a.popup-with-form{:href => "#test-form"} Open form
-    / = link_to 'Modal Form',  new_html_link_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#add-modal'} 
+    / = link_to 'Modal Form',  'http://dimsemenov.com/plugins/magnific-popup/site-assets/ajax/test-ajax-2.html', {:remote => true, :class => 'modal-form'} 
     / form itself
     / %form#test-form.white-popup-block.mfp-hide
     /   %h1 Form
