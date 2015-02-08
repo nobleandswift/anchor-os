@@ -101,6 +101,6 @@ class HtmlLinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def html_link_params
-      params.require(:html_link).permit(:html_link_id, :htmllink, :row_order_position)
+      params.require(:html_link).permit(:html_link_id, :htmllink, :row_order_position, :description)
     end
 end

@@ -10,3 +10,22 @@
   margin: 200px auto;
   position: relative;
 }
+
+.link-item {
+  margin: 15px 0 0 30px;
+}
+
+.page {
+  .link-header {
+    a {
+      margin-right: 10px;
+    }
+  }
+
+  .link-item {
+    .edit-html-link {
+      margin-right: 3px;
+    }
+  }
+}
+

@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-for i in 1..15 
-  HtmlLink.create(:htmllink => 'http://abcdefg' + i.to_s+ '.html')  
-end
 
+HtmlLink.create(:htmllink => "http://dimsemenov.com/plugins/magnific-popup/site-assets/ajax/test-ajax.html", :description => "ajax sample 1")
+HtmlLink.create(:htmllink => "http://map.google.com", :description => "Google Map")
+HtmlLink.create(:htmllink => "http://www.facebook.com", :description => "Facebook")

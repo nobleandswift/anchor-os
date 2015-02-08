@@ -1,56 +1,28 @@
 .page
-  .container
+  .container.pull-left
     .col-md-12
       %p#notice= notice
       %h1 Listing Html Links
 
       %br
       = render "/shared/flashes"  
-      .clearfix
-        %a.btn.btn-primary.pull-right.add-html-link{:href => new_html_link_path}
+      .clearfix.link-header
+        .pull-left{:style => "font-size: 15px; font-weight: bold; padding: 8px 10px 0 5px;"} Link
+        %a.btn.btn-primary.pull-left.edit-page
+          %span.glyphicon.glyphicon-move
+          Edit
+        %a.btn.btn-primary.pull-left.lock-page.hide
+          %span.glyphicon.glyphicon-lock
+          Lock
+        %a.btn.btn-primary.pull-left.add-html-link.hide{:href => new_html_link_path}
           %span.glyphicon.glyphicon-new-window
           Add
+      - @html_links.each do |html_link|
+        .clearfix.link-item
+          %a.pull-left{:href => html_link.htmllink, :class => 'edit-item'}=html_link.description
+          %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link), :style => "margin-left: 20px;"}
+            %span.glyphicon.glyphicon-edit
+          %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
+            %span.glyphicon.glyphicon-trash
 
-      .panel.panel-default
-
-        %table#sortable.table.table-hover.table-bordered.table-striped
-          %thead
-            %tr
-              / %th No
-              %th Link
-              %th Actions
-
-          %tbody
-            - index = 0
-            - @html_links.each do |html_link|
-              - index += 1
-              %tr{:class => cycle('default', 'default'), :class => 'item'}
-                / %td= index.to_s
-                %td
-                  / = link_to html_link.htmllink, html_link.htmllink, {:class => 'link-item'}
-                  %a{:href => html_link.htmllink, :class => 'link-item'}=html_link.htmllink
-                  
-
-                %td.actions
-                  / %a.btn.btn-primary.show-html-link{:href => test_form_html_link_path(html_link)}
-                  /   %span.glyphicon.glyphicon-list-alt
-                  /   Show
-                  %a.btn.btn-info.edit-html-link{:href => edit_html_link_path(html_link)}
-                    %span.glyphicon.glyphicon-edit
-                    Edit
-                  %a.btn.btn-danger{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
-                    %span.glyphicon.glyphicon-trash
-                    Del
-
-    / link that opens popup
-    / %a.popup-with-form{:href => "#test-form"} Open form
-    / = link_to 'Modal Form',  'http://dimsemenov.com/plugins/magnific-popup/site-assets/ajax/test-ajax-2.html', {:remote => true, :class => 'modal-form'} 
-    / form itself
-    / %form#test-form.white-popup-block.mfp-hide
-    /   %h1 Form
-    /   %fieldset{:style => "border:0;"}
-    /     %label{:for => "name"} Html Link
-    /     %input#name{:name => "name", :placeholder => "Name", :required => "", :type => "text", :size => 40}
-
-    / = render 'layouts/modal'
           

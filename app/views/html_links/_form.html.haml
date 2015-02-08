@@ -15,7 +15,8 @@
 
 .white-popup-block
   = bootstrap_form_for(@html_link) do |f|
-    = f.text_field :htmllink
+    = f.text_field :description, label: "Shortcut description"
+    = f.text_field :htmllink, label: "Link address"
     - if @html_link.new_record?
       = f.submit :Create
     - else

@@ -41,13 +41,30 @@ $(document).ready(function() {
 
   
   
-  $('.link-item').on("click",function(){
-    var width = 500; var height = 500;
-    var left = (screen.width / 2)-(width / 2);
-    var top = (screen.height / 2)-(height / 2);
-    window.open($(this).attr('href'), 'mywin', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
+  $('.edit-item').on("click",function(){
+    var width = screen.width; 
+    var height = screen.height;
+    var left = 0;
+    var top = 0;
+    window.open($(this).attr('href'), 'mywin', 'fullscreen=yes, toolbar=yes, location=yes, directories=no, status=yes, menubar=yes, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
     return false;
     
+  })
+
+  $('.lock-page').on('click', function() {
+    $(this).addClass('hide');
+    $('.edit-page').removeClass('hide')
+    $('.add-html-link').addClass('hide')
+    $('.edit-html-link').addClass('hide')
+    $('.delete-html-link').addClass('hide')
+  })
+
+  $('.edit-page').on('click', function() {
+    $(this).addClass('hide');
+    $('.add-html-link').removeClass('hide')
+    $('.lock-page').removeClass('hide')
+    $('.edit-html-link').removeClass('hide')
+    $('.delete-html-link').removeClass('hide')
   })
 
 });
