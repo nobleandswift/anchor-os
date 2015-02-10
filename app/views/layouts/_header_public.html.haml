@@ -1,6 +1,16 @@
 #top-header.navbar.navbar-fixed-top{:role => "navigation"}
-  .container.header-content
+  .container.header-content.pull-left
     .navbar-header
+      %h1.pull-left Listing Html Links
+      %a.btn.btn-primary.pull-left.edit-page{:style => "margin: 20px 0px 0 20px;"}
+        %span.glyphicon.glyphicon-move
+        Edit
+      %a.btn.btn-primary.pull-left.lock-page.hide{:style => "margin: 20px 0px 0 20px;"}
+        %span.glyphicon.glyphicon-lock
+        Lock
+      %a.btn.btn-primary.pull-left.refresh-page{:style => "margin: 20px 0px 0 20px;", :href => "#{root_url}"}
+        %span.glyphicon.glyphicon-refresh
+        Refresh
       %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
         %span.sr-only Toggle navigation
         %span.icon-bar

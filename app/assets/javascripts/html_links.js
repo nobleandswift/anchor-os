@@ -42,11 +42,28 @@ $(document).ready(function() {
   
   
   $('.edit-item').on("click",function(){
+
+
+    // rawFile.open("GET", file, false);
+    // rawFile.onreadystatechange = function ()
+    // {
+    //     if(rawFile.readyState === 4)
+    //     {
+    //         if(rawFile.status === 200 || rawFile.status == 0)
+    //         {
+    //             var allText = rawFile.responseText;
+    //             alert(allText);
+    //         }
+    //     }
+    // }
+    // rawFile.send(null);
+
     var width = screen.width; 
     var height = screen.height;
     var left = 0;
     var top = 0;
-    window.open($(this).attr('href'), 'mywin', 'fullscreen=yes, toolbar=yes, location=yes, directories=no, status=yes, menubar=yes, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
+    window.open($(this).attr('href'), '_blank', 'fullscreen=yes, toolbar=yes, location=yes, directories=no, status=yes, menubar=yes, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
+
     return false;
     
   })
@@ -65,6 +82,12 @@ $(document).ready(function() {
     $('.lock-page').removeClass('hide')
     $('.edit-html-link').removeClass('hide')
     $('.delete-html-link').removeClass('hide')
+  })
+
+  $('.refresh-page').on('click', function() {
+    window.location = $(this).attr('href');
+    location.reload(); 
+    return false;
   })
 
 });

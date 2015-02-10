@@ -4,7 +4,7 @@ class HtmlLinksController < ApplicationController
   # GET /html_links
   # GET /html_links.json
   def index
-    @html_links = HtmlLink.all.order("id")
+    @html_links = HtmlLink.all.order("created_at desc")
     flash.now[:alert] = $errors
     $errors = nil
   end
@@ -92,6 +92,24 @@ class HtmlLinksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # def read_text_file
+  #   filename = "file:///C:/Users/Administrator/Documents/happy.txt"
+
+  #   txt = open(filename)
+
+  #   puts "Here's your file #{filename}:"
+  #   print txt.read
+
+  #   print "Type the filename again: "
+  #   file_again = $stdin.gets.chomp
+
+  #   txt_again = open(file_again)
+
+  #   print txt_again.read
+
+  #   render :read_text_file. layout: false
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

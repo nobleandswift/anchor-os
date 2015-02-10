@@ -1,25 +1,23 @@
 .page
   .container.pull-left
     .col-md-12
-      %p#notice= notice
-      %h1 Listing Html Links
-
+      
       %br
       = render "/shared/flashes"  
       .clearfix.link-header
         .pull-left{:style => "font-size: 15px; font-weight: bold; padding: 8px 10px 0 5px;"} Link
-        %a.btn.btn-primary.pull-left.edit-page
-          %span.glyphicon.glyphicon-move
-          Edit
-        %a.btn.btn-primary.pull-left.lock-page.hide
-          %span.glyphicon.glyphicon-lock
-          Lock
+        / %a.btn.btn-primary.pull-left.edit-page
+        /   %span.glyphicon.glyphicon-move
+        /   Edit
+        / %a.btn.btn-primary.pull-left.lock-page.hide
+        /   %span.glyphicon.glyphicon-lock
+        /   Lock
         %a.btn.btn-primary.pull-left.add-html-link.hide{:href => new_html_link_path}
           %span.glyphicon.glyphicon-new-window
           Add
       - @html_links.each do |html_link|
         .clearfix.link-item
-          %a.pull-left{:href => html_link.htmllink, :class => 'edit-item'}=html_link.description
+          %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
           %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link), :style => "margin-left: 20px;"}
             %span.glyphicon.glyphicon-edit
           %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
