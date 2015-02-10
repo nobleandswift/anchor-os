@@ -4,7 +4,7 @@ class HtmlLinksController < ApplicationController
   # GET /html_links
   # GET /html_links.json
   def index
-    @html_links = HtmlLink.all.order("created_at desc")
+    @html_links = HtmlLink.all.order("created_at")
     flash.now[:alert] = $errors
     $errors = nil
   end
