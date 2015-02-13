@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :html_links do
     get :test_form, on: :member
+    post :update_row_order, on: :collection
   end
 
   root to: "html_links#index"

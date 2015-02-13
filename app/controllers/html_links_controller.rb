@@ -4,7 +4,8 @@ class HtmlLinksController < ApplicationController
   # GET /html_links
   # GET /html_links.json
   def index
-    @html_links = HtmlLink.all.order("created_at")
+    # @html_links = HtmlLink.all.order("created_at")
+    @html_links = HtmlLink.rank(:row_order).all
     flash.now[:alert] = $errors
     $errors = nil
   end
@@ -33,7 +34,7 @@ class HtmlLinksController < ApplicationController
   end
 
   def update_row_order
-    @html_link = Thing.find(html_link_params[:html_link_id])
+    @html_link = HtmlLink.find(html_link_params[:html_link_id])
     @html_link.row_order_position = html_link_params[:row_order_position]
     @html_link.save
 
@@ -93,6 +94,7 @@ class HtmlLinksController < ApplicationController
     end
   end
 
+  
   # def read_text_file
   #   filename = "file:///C:/Users/Administrator/Documents/happy.txt"
 
