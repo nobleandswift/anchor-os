@@ -26,6 +26,31 @@
     .edit-html-link {
       margin-right: 3px;
     }
+
+    a.edit-item {
+      color: #333;
+      &:link {
+        color: #333;
+      }
+      &:visited {
+        color: #333;
+      }
+      &:hover {
+        color: #428BCA;
+      }
+      // &:active {
+
+      // }
+    }
+
+    a.add-html-link {
+      color: white;
+      &:link {
+        color: white;
+      }
+    }
+
+    
   }
 }
 
