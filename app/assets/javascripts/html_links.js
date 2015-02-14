@@ -72,6 +72,18 @@ $(document).ready(function() {
     sortableItem();
   })
 
+  // $('.insert-spacer').on('click', function() {
+    
+  //   if($(".insert-spacer").is(':checked')) {
+  //     $('.description').removeAttr('disabled');
+  //     $('.html-link').removeAttr('disabled');
+  //   }
+  //   else {
+  //     $('.description').attr('disabled','disabled');
+  //     $('.html-link').attr('disabled','disabled');
+  //   }
+  // })
+
 });
 
 function sortableItem() {

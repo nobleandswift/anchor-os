@@ -18,8 +18,11 @@
       #sortable.items.sortable
         - @html_links.each do |html_link|
           .clearfix.link-item{"data-item-id" => "#{html_link.id}"}
-            %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
-            %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link), :style => "margin-left: 20px;"}
+            - if html_link.is_empty
+              .pull-left{:style => 'opacity: 0'} aaa
+            - else
+              %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
+            %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link), :style => "margin-left: 5px;"}
               %span.glyphicon.glyphicon-edit
             %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
               %span.glyphicon.glyphicon-trash

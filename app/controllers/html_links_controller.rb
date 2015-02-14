@@ -6,6 +6,7 @@ class HtmlLinksController < ApplicationController
   def index
     # @html_links = HtmlLink.all.order("created_at")
     @html_links = HtmlLink.rank(:row_order).all
+    # binding.pry
     flash.now[:alert] = $errors
     $errors = nil
   end
@@ -54,6 +55,10 @@ class HtmlLinksController < ApplicationController
     @html_link = HtmlLink.new(html_link_params)
 
     respond_to do |format|
+      if @html_link.is_empty
+        @html_link.description = ''
+        @html_link.htmllink = ''
+      end
       if @html_link.save
         # format.html { redirect_to @html_link, notice: 'Html link was successfully created.' }
         format.html { redirect_to html_links_path }
@@ -121,6 +126,6 @@ class HtmlLinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def html_link_params
-      params.require(:html_link).permit(:html_link_id, :htmllink, :row_order_position, :description)
+      params.require(:html_link).permit(:html_link_id, :htmllink, :row_order_position, :description, :is_empty)
     end
 end
