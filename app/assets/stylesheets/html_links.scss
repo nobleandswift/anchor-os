@@ -17,6 +17,8 @@
 
 .page {
   .link-header {
+
+    line-height: 28px;
     a {
       margin-right: 10px;
     }
@@ -32,8 +34,15 @@
   }
 
   .link-item {
-    .edit-html-link {
+    .edit-html-link, .indent-left-html-link, .indent-right-html-link {
       margin-right: 1px;
+    }
+
+    .spacer {
+      opacity: 1; 
+      font-weight: bold; 
+      font-size: 1.3em;
+      margin-bottom: 15px;
     }
 
     a.edit-item {
@@ -45,15 +54,15 @@
         color: #333;
       }
       &:hover {
-        color: blue;
-        font-weight: bold;
+        color: #4F93F2;
+        // font-weight: bold;
         background-color: transparent;
       }
       &:active {
         // color: white;
       }
     }
-    a.edit-html-link, a.delete-html-link {
+    a.edit-html-link, a.delete-html-link, a.indent-left-html-link, a.indent-right-html-link {
       color: white;
       &:link {
         color: white;
@@ -61,7 +70,7 @@
       &:visited {
         color: white;
       }
-      padding: 0 3px;
+      padding: 0 2px;
     }
 
 
@@ -69,4 +78,6 @@
     
   }
 }
+
+
 

@@ -38,7 +38,13 @@ class HtmlLinksController < ApplicationController
     @html_link = HtmlLink.find(html_link_params[:html_link_id])
     @html_link.row_order_position = html_link_params[:row_order_position]
     @html_link.save
+    render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
+  end
 
+  def update_indentation
+    @html_link = HtmlLink.find(html_link_params[:html_link_id])
+    @html_link.indentation = html_link_params[:indentation]
+    @html_link.save
     render nothing: true # this is a POST action, updates sent via AJAX, no view rendered
   end
 
@@ -126,6 +132,6 @@ class HtmlLinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def html_link_params
-      params.require(:html_link).permit(:html_link_id, :htmllink, :row_order_position, :description, :is_empty)
+      params.require(:html_link).permit(:html_link_id, :htmllink, :row_order_position, :description, :is_empty, :indentation)
     end
 end

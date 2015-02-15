@@ -44,15 +44,15 @@ $(document).ready(function() {
   $('.edit-item').on("click",function(){
 
 
-    var width = screen.width; 
-    var height = screen.height;
-    var left = 0;
-    var top = 0;
-    window.open($(this).attr('href'), '_blank', 'fullscreen=yes, toolbar=yes, location=yes, directories=no, status=yes, menubar=yes, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
+    // var width = screen.width; 
+    // var height = screen.height;
+    // var left = 0;
+    // var top = 0;
+    // window.open($(this).attr('href'), '_blank', 'fullscreen=yes, toolbar=yes, location=yes, directories=no, status=yes, menubar=yes, scrollbars=yes, resizable=yes, copyhistory=no, width='+width+', height='+height+', top='+top+', left='+left);
 
-    return false;
+    // return false;
     
-  })
+  });
 
   $('.lock-page').on('click', function() {
     $(this).addClass('hide');
@@ -60,8 +60,10 @@ $(document).ready(function() {
     $('.add-html-link').addClass('hide');
     $('.edit-html-link').addClass('hide');
     $('.delete-html-link').addClass('hide');
+    $('.indent-left-html-link').addClass('hide');
+    $('.indent-right-html-link').addClass('hide');
     $('#sortable').sortable('destroy');
-  })
+  });
 
   $('.edit-page').on('click', function() {
     $(this).addClass('hide');
@@ -69,9 +71,65 @@ $(document).ready(function() {
     $('.lock-page').removeClass('hide');
     $('.edit-html-link').removeClass('hide');
     $('.delete-html-link').removeClass('hide');
-    sortableItem();
-  })
+    $('.indent-left-html-link').removeClass('hide');
+    $('.indent-right-html-link').removeClass('hide');
 
+    sortableItem();
+  });
+
+  $('.indent-left-html-link').on('click', function() {
+    parent = $(this).parent();
+    indentation = parseInt(parent.data('indentation'));
+    indentation -= 1;
+    if (indentation <= 0) {
+      indentation = 0;
+    }
+    updateIndentation(parent, indentation)
+    return false;
+  });
+
+  $('.indent-right-html-link').on('click', function() {
+    parent = $(this).parent();
+    indentation = parseInt(parent.data('indentation'));
+    indentation += 1;
+    if (indentation >= 10) {
+      indentation = 10;
+    }
+    updateIndentation(parent, indentation)
+    return false;
+  });
+
+  function updateIndentation(obj, indentation) {
+    obj.css('margin-left', (indentation * 30 + 30).toString() + 'px')
+    // obj.attr('data-indentation', indentation.toString());
+    obj.data('indentation', indentation.toString());
+    var item_id;
+    item_id = obj.data('item-id');
+    return $.ajax({
+      type: 'POST',
+      url: '/html_links/update_indentation',
+      dataType: 'json',
+      data: {
+        html_link: {
+          html_link_id: item_id,
+          indentation: indentation
+        }
+      }
+    });
+  }
+
+  // $('.link-item').each( obj, function (key, value) {
+  //   indentation = parseInt(parent.data('indentation'));
+  //   updateIndentation($(this), indentation)
+  // });
+
+  $('.link-item').each( function() {
+    indentation = parseInt($(this).data('indentation'));
+    if (indentation > 0) {
+      $(this).css('margin-left', (indentation * 30 + 30).toString() + 'px')
+    };
+    
+  });
   // $('.insert-spacer').on('click', function() {
     
   //   if($(".insert-spacer").is(':checked')) {
