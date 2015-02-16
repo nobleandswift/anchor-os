@@ -17,8 +17,9 @@
   = bootstrap_form_for(@html_link) do |f|
     = f.text_field :description, label: "Shortcut description", class: "description"
     = f.text_field :htmllink, label: "Link address", class: "html-link"
-
-    = f.check_box :is_empty, label: "Insert heading", class: "insert-spacer"
+    = f.check_box :is_heading, label: "Insert heading", class: "insert-heading "
+    = f.check_box :is_empty, label: "Insert spacer", class: "insert-spacer "
+    .clearfix
     - if @html_link.new_record?
       = f.submit :Create
     - else
@@ -29,19 +30,25 @@
 :javascript
 $(document).ready(function() {
   $('.insert-spacer').on('click', function() {
-
-    if($(".insert-spacer").is(':checked')) {
-      //$('.description').attr('disabled','disabled');
-      $('.html-link').attr('disabled','disabled');
-    }
-    else {
-      //$('.description').removeAttr('disabled');
-      $('.html-link').removeAttr('disabled');
-    }
+    updateUI();
+  })
+  $('.insert-heading').on('click', function() {
+    updateUI();
   })
 
-  if($(".insert-spacer").is(':checked')) {
-    //$('.description').attr('disabled','disabled');
-    $('.html-link').attr('disabled','disabled');
+  updateUI();
+
+  function updateUI() {
+    var is_space = $(".insert-spacer").is(':checked');
+    var is_heading = $(".insert-heading").is(':checked');
+    $('.html-link').removeAttr('disabled');
+    $('.description').removeAttr('disabled');
+    if (is_heading || is_space) {
+      $('.html-link').attr('disabled','disabled');
+    }
+    if (is_space && !is_heading) {
+      $('.description').attr('disabled','disabled');
+    }
+    
   }
 });

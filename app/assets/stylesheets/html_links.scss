@@ -11,9 +11,6 @@
   position: relative;
 }
 
-.link-item {
-  margin: 15px 0 0 30px;
-}
 
 .page {
   .link-header {
@@ -34,16 +31,44 @@
   }
 
   .link-item {
+    margin: 3px 0 0 30px;
+    &.heading-and-spacer {
+      margin-top: 30px;
+    }
+
     .edit-html-link, .indent-left-html-link, .indent-right-html-link {
       margin-right: 1px;
     }
 
-    .spacer {
+    .indent-left-html-link {
+      margin-left: 5px;
+    }
+    &.heading {
+      a {
+        margin-top: 6px;
+      }
+    }
+
+    &.heading-and-spacer {
+      a {
+        margin-top: 8px;
+      }
+    }
+
+    .heading {
       opacity: 1; 
       font-weight: bold; 
-      font-size: 1.3em;
-      margin-bottom: 15px;
+      font-size: 1.5em;
+      margin-bottom: 10px;
     }
+
+    .spacer {
+      opacity: 0; 
+      font-weight: bold; 
+      margin-bottom: 10px;
+    }
+
+    
 
     a.edit-item {
       color: #333;
@@ -64,6 +89,7 @@
     }
     a.edit-html-link, a.delete-html-link, a.indent-left-html-link, a.indent-right-html-link {
       color: white;
+      font-size: 10px;
       &:link {
         color: white;
       }
@@ -72,10 +98,19 @@
       }
       padding: 0 2px;
     }
-
-
-
     
+  }
+}
+
+.mfp-content {
+  form {
+    .checkbox {
+      float: left;
+    }
+    .radio + .radio, .checkbox + .checkbox {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
   }
 }
 
