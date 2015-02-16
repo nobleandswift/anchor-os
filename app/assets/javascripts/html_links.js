@@ -78,24 +78,24 @@ $(document).ready(function() {
   });
 
   $('.indent-left-html-link').on('click', function() {
-    parent = $(this).parent();
-    indentation = parseInt(parent.data('indentation'));
+    $parent = $(this).parent();
+    indentation = parseInt($parent.data('indentation'));
     indentation -= 1;
     if (indentation <= 0) {
       indentation = 0;
     }
-    updateIndentation(parent, indentation)
+    updateIndentation($parent, indentation)
     return false;
   });
 
   $('.indent-right-html-link').on('click', function() {
-    parent = $(this).parent();
-    indentation = parseInt(parent.data('indentation'));
+    $parent = $(this).parent();
+    indentation = parseInt($parent.data('indentation'));
     indentation += 1;
     if (indentation >= 10) {
       indentation = 10;
     }
-    updateIndentation(parent, indentation)
+    updateIndentation($parent, indentation)
     return false;
   });
 
