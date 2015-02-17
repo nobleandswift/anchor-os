@@ -33,7 +33,20 @@
   .link-item {
     margin: 3px 0 0 30px;
     &.heading-and-spacer {
-      margin-top: 30px;
+      margin-top: 45px;
+      line-height: 20px;
+
+      a {
+        margin-top: 3px;
+      }
+    }
+
+    &.heading {
+      margin-top: 10px;
+      // line-height: 20px;
+      a {
+        margin-top: 10px;
+      }
     }
 
     .edit-html-link, .indent-left-html-link, .indent-right-html-link {
@@ -43,23 +56,12 @@
     .indent-left-html-link {
       margin-left: 5px;
     }
-    &.heading {
-      a {
-        margin-top: 6px;
-      }
-    }
-
-    &.heading-and-spacer {
-      a {
-        margin-top: 8px;
-      }
-    }
 
     .heading {
       opacity: 1; 
       font-weight: bold; 
       font-size: 1.5em;
-      margin-bottom: 10px;
+      margin-bottom: 3px;
     }
 
     .spacer {
@@ -68,7 +70,6 @@
       margin-bottom: 10px;
     }
 
-    
 
     a.edit-item {
       color: #333;
