@@ -11,3 +11,6 @@
 HtmlLink.create(:htmllink => "http://dimsemenov.com/plugins/magnific-popup/site-assets/ajax/test-ajax.html", :description => "ajax sample 1")
 HtmlLink.create(:htmllink => "http://map.google.com", :description => "Google Map")
 HtmlLink.create(:htmllink => "http://www.facebook.com", :description => "Facebook")
+
+User.create(:email => "admin@admin.com", :password => "adminadmin", :is_admin => true)
+User.create(:email => "user1@admin.com", :password => "useruser", :is_admin => false)

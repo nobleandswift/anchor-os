@@ -8,6 +8,17 @@
     .header-content {
       padding: 23px 0 0 18px;
       height: 100%;
+
+      .login-block {
+        padding-top: 40px;
+        a {
+          color: #333;
+        }
+        a:hover {
+          color: #4F93F2;
+          background-color: transparent;
+        }
+      }
     }
 
     a {

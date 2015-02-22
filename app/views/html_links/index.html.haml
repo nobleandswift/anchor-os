@@ -16,57 +16,61 @@
           %span.glyphicon.glyphicon-new-window
           Add
       #sortable.items.sortable
-        - @html_links.each do |html_link|
-          - if html_link.is_heading && html_link.is_empty
-            .clearfix.link-item.heading-and-spacer{"data-item-id" => "#{html_link.id}", "data-indentation" => "#{html_link.indentation}"}
-              - if html_link.is_heading
-                .pull-left.heading
-                  = html_link.description
-              - elsif html_link.is_empty
-                .pull-left.spacer aaa
-              - else
-                %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
-              %a.pull-left.btn.btn-xs.btn-info.indent-left-html-link.hide
-                %span.glyphicon.glyphicon-indent-left
-              %a.pull-left.btn.btn-xs.btn-info.indent-right-html-link.hide
-                %span.glyphicon.glyphicon-indent-right
-              %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link)}
-                %span.glyphicon.glyphicon-edit
-              %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
-                %span.glyphicon.glyphicon-trash
-          - elsif html_link.is_heading
-            .clearfix.link-item.heading{"data-item-id" => "#{html_link.id}", "data-indentation" => "#{html_link.indentation}"}
-              - if html_link.is_heading
-                .pull-left.heading
-                  = html_link.description
-              - elsif html_link.is_empty
-                .pull-left.spacer aaa
-              - else
-                %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
-              %a.pull-left.btn.btn-xs.btn-info.indent-left-html-link.hide
-                %span.glyphicon.glyphicon-indent-left
-              %a.pull-left.btn.btn-xs.btn-info.indent-right-html-link.hide
-                %span.glyphicon.glyphicon-indent-right
-              %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link)}
-                %span.glyphicon.glyphicon-edit
-              %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
-                %span.glyphicon.glyphicon-trash
-          - else
-            .clearfix.link-item{"data-item-id" => "#{html_link.id}", "data-indentation" => "#{html_link.indentation}"}
-              - if html_link.is_heading
-                .pull-left.heading
-                  = html_link.description
-              - elsif html_link.is_empty
-                .pull-left.spacer aaa
-              - else
-                %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
-              %a.pull-left.btn.btn-xs.btn-info.indent-left-html-link.hide
-                %span.glyphicon.glyphicon-indent-left
-              %a.pull-left.btn.btn-xs.btn-info.indent-right-html-link.hide
-                %span.glyphicon.glyphicon-indent-right
-              %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link)}
-                %span.glyphicon.glyphicon-edit
-              %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
-                %span.glyphicon.glyphicon-trash
+        - if @html_links.size > 0
+          - @html_links.each do |html_link|
+            - if html_link.is_heading && html_link.is_empty
+              .clearfix.link-item.heading-and-spacer{"data-item-id" => "#{html_link.id}", "data-indentation" => "#{html_link.indentation}"}
+                - if html_link.is_heading
+                  .pull-left.heading
+                    = html_link.description
+                - elsif html_link.is_empty
+                  .pull-left.spacer aaa
+                - else
+                  %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
+                %a.pull-left.btn.btn-xs.btn-info.indent-left-html-link.hide
+                  %span.glyphicon.glyphicon-indent-left
+                %a.pull-left.btn.btn-xs.btn-info.indent-right-html-link.hide
+                  %span.glyphicon.glyphicon-indent-right
+                %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link)}
+                  %span.glyphicon.glyphicon-edit
+                %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
+                  %span.glyphicon.glyphicon-trash
+            - elsif html_link.is_heading
+              .clearfix.link-item.heading{"data-item-id" => "#{html_link.id}", "data-indentation" => "#{html_link.indentation}"}
+                - if html_link.is_heading
+                  .pull-left.heading
+                    = html_link.description
+                - elsif html_link.is_empty
+                  .pull-left.spacer aaa
+                - else
+                  %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
+                %a.pull-left.btn.btn-xs.btn-info.indent-left-html-link.hide
+                  %span.glyphicon.glyphicon-indent-left
+                %a.pull-left.btn.btn-xs.btn-info.indent-right-html-link.hide
+                  %span.glyphicon.glyphicon-indent-right
+                %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link)}
+                  %span.glyphicon.glyphicon-edit
+                %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
+                  %span.glyphicon.glyphicon-trash
+            - else
+              .clearfix.link-item{"data-item-id" => "#{html_link.id}", "data-indentation" => "#{html_link.indentation}"}
+                - if html_link.is_heading
+                  .pull-left.heading
+                    = html_link.description
+                - elsif html_link.is_empty
+                  .pull-left.spacer aaa
+                - else
+                  %a.pull-left{:href => html_link.htmllink, :class => 'edit-item', :target => '_blank'}=html_link.description
+                %a.pull-left.btn.btn-xs.btn-info.indent-left-html-link.hide
+                  %span.glyphicon.glyphicon-indent-left
+                %a.pull-left.btn.btn-xs.btn-info.indent-right-html-link.hide
+                  %span.glyphicon.glyphicon-indent-right
+                %a.pull-left.btn.btn-xs.btn-info.edit-html-link.hide{:href => edit_html_link_path(html_link)}
+                  %span.glyphicon.glyphicon-edit
+                %a.pull-left.btn.btn-xs.btn-danger.delete-html-link.hide{"data-confirm" => "Are you sure?", "data-method" => "delete", :href => html_link_path(html_link), :rel => "nofollow"}
+                  %span.glyphicon.glyphicon-trash
+        - else
+          .no-data There is no data
+        
 
           

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :html_links do
     get :test_form, on: :member
     post :update_row_order, on: :collection

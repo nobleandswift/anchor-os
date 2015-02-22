@@ -2,6 +2,7 @@ class HtmlLink < ActiveRecord::Base
   include RankedModel
   ranks :row_order
 
+  belongs_to :user
 
   validates :htmllink, presence: true, if: :is_valid_link?
   validates_uniqueness_of :description, if: :is_valid_link?
